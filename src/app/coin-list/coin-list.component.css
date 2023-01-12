@@ -1,0 +1,233 @@
+.header {
+    height: 40%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header h2 {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 3.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.0083em;
+}
+
+.header h6 {
+    color: darkgray;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.57;
+    letter-spacing: 0.00714em;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5525560566023284) 0%, rgba(0, 0, 0, 0.3984944319524685) 99%),
+        url(https://th.bing.com/th/id/R.ea5e990a50c5e542ef812cb7f34b22e3?rik=bEr9dHeLL0a1dg&pid=ImgRaw&r=0);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: -10% 39%;
+
+    height: auto;
+    width: 100%;
+
+}
+
+
+.sub-header {
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+marquee {
+    height: 263px;
+
+}
+
+.header p {
+    margin: 30px;
+    font-size: 38px;
+
+}
+
+.card {
+    border: 0;
+    background: transparent;
+    color: #fff;
+    padding: 10px;
+    margin: 40px;
+    width: 210px;
+    height: 190px;
+    text-align: center;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5525560566023284) 0%, rgba(0, 0, 0, 0.3984944319524685) 99%);
+
+}
+
+.card img {
+    width: 50px;
+    margin: 0 auto;
+}
+
+.card h5 {
+    font-weight: 500;
+
+}
+
+.card p {
+    font-weight: 500;
+}
+
+table {
+    width: 100%;
+}
+
+
+td,
+th {
+    width: 25%;
+}
+
+.price_changes p {
+    border: 2px solid;
+    width: fit-content;
+    width: 90px;
+    padding: 0 8px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.symbol-coin {
+    width: auto;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    padding: 0;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+:host ::ng-deep .mat-paginator-range-label,
+:host ::ng-deep .mat-paginator-page-size-label {
+    font-weight: 600;
+    color: #8f8f8f;
+}
+
+:host ::ng-deep .mat-paginator-container {
+    justify-content: center;
+    border-top: 1px solid;
+}
+
+
+:host ::ng-deep .mat-row {
+    height: 70px;
+}
+
+:host ::ng-deep .mat-sort-header-content,
+.mat-row {
+    font-family: 'Montserrat';
+}
+
+:host ::ng-deep .mat-paginator-outer-container {
+    font-family: 'Montserrat';
+
+}
+
+footer {
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5525560566023284) 0%, rgba(0, 0, 0, 0.3984944319524685) 99%),
+        url(https://img.freepik.com/free-photo/bitcoin-new-concept-virtual-money-graphics-digital-background-gold-coin-with-image-letter-b-mining-blockchain-technology-close-up_169016-4494.jpg?size=626&ext=jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: -10% 39%;
+    height: auto;
+    width: 100%;
+}
+
+section a {
+    border-radius: 50%;
+
+}
+
+@media (max-width: 600px) {
+    .card {
+        border: 0;
+        background: transparent;
+        color: #fff;
+        padding: 41px 0px;
+        margin: 40px;
+        width: 114px;
+        height: 160px;
+        text-align: center;
+    }
+
+    .card h5 {
+        font-weight: 500;
+        font-size: 9px;
+    }
+
+    .card p {
+        font-weight: 500;
+        font-size: 10px;
+    }
+
+    .card img {
+        width: 31px;
+        margin: 0 auto;
+    }
+
+    .symbol-coin {
+        flex-direction: column;
+        margin-left: -40px;
+    }
+
+    td {
+        font-size: 13px
+    }
+
+    .price_changes p {
+        border: none;
+        width: -moz-fit-content;
+        width: fit-content;
+        width: 77px;
+        padding: 0 8px;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    :host ::ng-deep .mat-paginator-page-size {
+        display: none;
+    }
+
+    footer {
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5525560566023284) 0%, rgba(0, 0, 0, 0.3984944319524685) 99%), url(https://img.freepik.com/free-photo/bitcoin-new-concept-virtual-money-graphics-digital-background-gold-coin-with-image-letter-b-mining-blockchain-technology-close-up_169016-4494.jpg?size=626&ext=jpg);
+        background-repeat: inherit;
+        background-size:auto;
+        background-position: inherit;
+        height: auto;
+    }
+
+
+}

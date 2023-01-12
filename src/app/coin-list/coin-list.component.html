@@ -1,0 +1,169 @@
+<div class="banner">
+    <div class="container">
+        <!-- <div class="header">
+            <p style="color:'transparent'">Top Trending Crypto</p>
+   
+        </div> -->
+        <div class="sub-header">
+            <marquee behavior="scroll" scrollamount="3" onmouseover="stop()" onmouseout="start()" direction="left">
+                <div class="row">
+                    <ng-container *ngFor="let row of bannerData">
+                        <div class="col-2">
+                            <div class="card">
+                                <img [src]="row.image" width="100%" class="img-fluid" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title"> <span class=" fw-bold ">
+                                            <p>{{row.symbol | uppercase}}</p>
+                                            <p *ngIf="row.price_change_percentage_24h > 0" class="text-success">
+                                                {{row.market_cap_change_percentage_24h | number:".1-2"}}%</p>
+                                            <p *ngIf="row.price_change_percentage_24h < 0" class="text-danger">
+                                                {{row.market_cap_change_percentage_24h | number:".1-2"}}%</p>
+
+                                        </span></h5>
+                                    <p class="card-text">{{row.current_price | currency:"USD"}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </marquee>
+        </div>
+    </div>
+</div>
+<div class="container my-3">
+
+    <mat-form-field appearance="standard">
+        <mat-label class="ps-2">Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. BTC" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Coin</th>
+                <td mat-cell *matCellDef="let row">
+                    <div class="symbol-coin">
+                        <img [src]="row.image" width="30" alt="">
+                        <span class="mx-2"> {{row.symbol | uppercase}} </span>
+                    </div>
+                </td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="current_price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                <td mat-cell *matCellDef="let row"> $ {{row.current_price | number:'.1-7' }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let row">{{row.id }}</td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="price_change_percentage_24h">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> 24h change </th>
+                <td mat-cell *matCellDef="let row" class="price_changes" style="padding-top: 16px;">
+                    <p *ngIf="row.price_change_percentage_24h > 0" class="text-success">
+                        <i class="bi bi-caret-up-fill"></i>
+                        {{row.price_change_percentage_24h | number:".1-2"}}%
+                    </p>
+                    <p *ngIf="row.price_change_percentage_24h < 0" class="text-danger">
+                        <i class="bi bi-caret-down-fill"></i>
+                        {{row.price_change_percentage_24h | number:".1-2"}}%
+                    </p>
+                </td>
+            </ng-container>
+
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="market_cap">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Market Cap </th>
+                <td mat-cell *matCellDef="let row"> {{row.market_cap | currency:'USD'}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr style="cursor: pointer;" (click)="coinDetails(row)" mat-row
+                *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25,50, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+</div>
+
+<footer class=" text-center text-white">
+
+    <div class="container p-4">
+
+        <section class="mb-4">
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-facebook"></i>
+            </a>
+
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-twitter"></i> </a>
+
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-google"></i> </a>
+
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="bi bi-instagram"></i>
+            </a>
+
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-linkedin"></i>
+                </a>
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-github"></i> </a>
+        </section>
+
+        <section class="">
+            <form action="">
+
+                <div class="row d-flex justify-content-center">
+
+                    <div class="col-auto">
+                        <p class="pt-2">
+                            <strong>Sign up for our newsletter</strong>
+                        </p>
+                    </div>
+
+                    <div class="col-md-5 col-12">
+
+                        <div class="form-outline form-white mb-4">
+                            <input type="email" id="form5Example21" class="form-control" />
+
+                        </div>
+                    </div>
+
+                    <div class="col-auto">
+
+                        <button type="submit" class="btn btn-outline-light mb-4">
+                            Subscribe
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+        </section>
+
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright
+        <a class="text-white" href="https://mdbootstrap.com/">alirezajabberi.com</a>
+    </div>
+
+</footer>
